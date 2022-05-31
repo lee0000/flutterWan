@@ -28,9 +28,10 @@ class _TabThreePageState extends State<TabThreePage> {
             trailing: const Icon(Icons.chevron_right),
             onTap: (){
               print("登录");
-              setState(() {
-                isNeedLogin = !isNeedLogin;
-              });
+              // setState(() {
+              //   isNeedLogin = !isNeedLogin;
+              // });
+              Navigator.pushNamed(context, "/login");
             },
           );
       }  else{

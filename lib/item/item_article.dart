@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wan_flutter/util/relative_date.dart';
 import '../model/top_list_model.dart';
 import '../util/screen_util.dart';
 
@@ -21,8 +21,9 @@ class _ItemArticleState extends State<ItemArticle> {
   @override
   Widget build(BuildContext context) {
 
-    return Container(
+    return Padding(
 
+      padding: const EdgeInsets.fromLTRB( 6.0, 6.0, 6.0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,6 +34,7 @@ class _ItemArticleState extends State<ItemArticle> {
                ),
             ],
           ),
+          const SizedBox(height: 6),
           Stack(
             children: [
               Align(
@@ -40,20 +42,23 @@ class _ItemArticleState extends State<ItemArticle> {
                 alignment: Alignment.centerLeft,
               ),
               Align(
-                child: Text(widget.data.publishTime.toString()),
+                child: Text(RelativeDateFormat.format(widget.data.publishTime)),
                 alignment: Alignment.centerRight,
               ),
 
             ],
           ),
+          const SizedBox(height: 2),
           Stack(
             children: [
               Align(
-                child: Text(widget.data.chapterName),
+                child: Text(" " + widget.data.chapterName + " ", style: const TextStyle(
+                  backgroundColor: Colors.white38,
+                )),
                 alignment: Alignment.centerLeft,
               ),
               const Align(
-                child: Icon(Icons.favorite),
+                child: Icon(Icons.favorite_border),
                 alignment: Alignment.centerRight,
               ),
 
